@@ -15,7 +15,7 @@ import {
   Done as ShippedIcon,
   Publish as UploadIcon,
 } from "@material-ui/icons";
-import { useTheme } from "@material-ui/styles";
+import { useTheme } from "@mui/styles";
 import classnames from "classnames";
 import tinycolor from "tinycolor2";
 

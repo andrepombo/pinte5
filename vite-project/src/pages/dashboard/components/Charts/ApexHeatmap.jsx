@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from "@material-ui/styles";
+import { useTheme } from "@mui/styles";
 import ApexCharts from "react-apexcharts";
 import axiosInstance from '../../../../axios';
 import { useParams } from 'react-router-dom';

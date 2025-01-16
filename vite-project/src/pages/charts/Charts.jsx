@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../../axios';
 import { Button, Grid } from "@mui/material";
-import { useTheme } from "@material-ui/styles";
+import { useTheme } from "@mui/styles";
 import {
   CartesianGrid,
   Legend,

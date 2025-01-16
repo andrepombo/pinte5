@@ -5,7 +5,7 @@ import {
   Typography as TypographyBase,
   Button as ButtonBase,
 } from "@mui/material";
-import { useTheme, makeStyles } from "@material-ui/styles";
+import { useTheme, makeStyles } from "@mui/styles";
 import classnames from "classnames";
 
 // styles

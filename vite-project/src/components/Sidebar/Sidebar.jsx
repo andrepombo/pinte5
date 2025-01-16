@@ -14,7 +14,7 @@ import {
   People,
   LocalHospital as Epi,
 } from "@material-ui/icons";
-import { useTheme } from "@material-ui/styles";
+import { useTheme } from "@mui/styles";
 import { withRouter } from "react-router-dom";
 import classNames from "classnames";
 

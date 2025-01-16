@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@mui/styles";
 //import MUIDataTable from "mui-datatables";
 
 // components
