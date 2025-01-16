@@ -14,7 +14,7 @@ import axiosInstance from '../../../../../axios';
 
 //import DateFnsUtils from "@date-io/date-fns"; // import
 //import { DatePicker,KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import MaterialTable from "material-react-table";
+import { MaterialReactTable } from "material-react-table";
 //import axios from 'axios'
 //import Alert from '@mui/material/Alert';
 // import Duplicate from '@mui/icons-material/LibraryAdd';
@@ -160,7 +160,7 @@ function CardsLast() {
       <Grid container spacing={1}>
           <Grid item xs={1}></Grid>
           <Grid item xs={12}>
-            <MaterialTable
+            <MaterialReactTable
               //title= {'Últimos 5 ' + columns[13]["title"] + 's'}
               title= {'Últimos 5 Iniciados'}
               localization={localization}

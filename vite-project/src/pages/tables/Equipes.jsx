@@ -14,7 +14,7 @@ import axiosInstance from '../../axios';
 
 //import DateFnsUtils from "@date-io/date-fns"; // import
 //import { DatePicker,KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import MaterialTable from "material-react-table";
+import { MaterialReactTable } from "material-react-table";
 //import axios from 'axios'
 //import Alert from '@mui/material/Alert';
 // import Duplicate from '@mui/icons-material/LibraryAdd';
@@ -149,7 +149,7 @@ function Boards() {
   //       })
   //   }, [])
 
- //<MaterialTable isLoading={loading} ...></MaterialTable>
+ //<{ MaterialReactTable } isLoading={loading} ...></{ MaterialReactTable }>
 
  
   const handleRowUpdate = (newData, oldData, resolve) => {
@@ -327,7 +327,7 @@ function Boards() {
               </Alert>
             }       
           </div> */}
-            <MaterialTable
+            <MaterialReactTable
               title={board}
               localization={localization}
               columns={columns}
