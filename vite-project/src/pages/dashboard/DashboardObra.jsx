@@ -27,20 +27,20 @@ import {
 import {useParams } from 'react-router-dom';
 
 // styles
-import useStyles from "./styles.js";
+import useStyles from "./styles.jsx";
 
 // components
-import Widget from "../../components/Widget/Widget.js";
-import PageTitle from "../../components/PageTitle/PageTitle.js";
-import { Typography } from "../../components/Wrappers/Wrappers.js";
-import Dot from "../../components/Sidebar/components/Dot.js";
-import TableObraLast from "./components/Tables/TablesObraLast /TableObraLast.js";
+import Widget from "../../components/Widget/Widget.jsx";
+import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import { Typography } from "../../components/Wrappers/Wrappers.jsx";
+import Dot from "../../components/Sidebar/components/Dot.jsx";
+import TableObraLast from "./components/Tables/TablesObraLast /TableObraLast.jsx";
 
 //import BigStat from "./components/BigStat/BigStat";
-import ApexHeatmap from "./components/Charts/ApexHeatmap.js";
-import ApexBars from "./components/Charts/ApexBars.js";
-import ApexLineColabs from "./components/Charts/ApexLineColabs.js";
-import AutoCompleteCustom from "../../components/Widget/AutoCompleteMultiple.js";
+import ApexHeatmap from "./components/Charts/ApexHeatmap.jsx";
+import ApexBars from "./components/Charts/ApexBars.jsx";
+import ApexLineColabs from "./components/Charts/ApexLineColabs.jsx";
+import AutoCompleteCustom from "../../components/Widget/AutoCompleteMultiple.jsx";
 import TextField from '@mui/material/TextField';
 
 
