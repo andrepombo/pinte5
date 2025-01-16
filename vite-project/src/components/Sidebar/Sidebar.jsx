@@ -15,7 +15,7 @@ import {
   LocalHospital as Epi,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/styles";
-import { withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
 // styles
@@ -185,4 +185,4 @@ function Sidebar({ location }) {
   }
 }
 
-export default withRouter(Sidebar);
+export default useNavigate(Sidebar);
