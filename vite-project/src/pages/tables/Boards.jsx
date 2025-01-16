@@ -15,8 +15,8 @@ import axiosInstance from '../../axios';
 import MaterialTable from "material-react-table";
 //import axios from 'axios'
 //import Alert from '@mui/material/Alert';
-// import Duplicate from '@material-ui/icons/LibraryAdd';
-// import { BorderColor } from '@material-ui/icons';
+// import Duplicate from '@mui/icons-material/LibraryAdd';
+// import { BorderColor } from '@mui/icons-material';
 // import { TableCell, Table, TableRow } from '@mui/material';
 import  { Chip } from "@mui/material";
 //import moment from "moment"

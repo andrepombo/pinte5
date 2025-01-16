@@ -20,11 +20,11 @@ import classnames from "classnames";
 import useStyles from "./styles";
 
 // components
-import Header from "../Header";
-import Sidebar from "../Sidebar";
+import Header from "../Header/Header";
+import Sidebar from "../Sidebar/Sidebar";
 
 // pages
-import Dashboard from "../../pages/dashboard";
+import Dashboard from "../../pages/dashboard/Dashboard";
 import DashboardObra from "../../pages/dashboard/DashboardObra";
 
 import Epis from "../../pages/tables/TableObraEpis";
@@ -39,16 +39,16 @@ import ColabServices from "../../pages/tables/TableColabServices";
 import NewColab from "../../pages/forms/Criar";
 import EditColab from "../../pages/forms/Edit";
 import EquipeColab from "../../pages/forms/Equipe";
-import Typography from "../../pages/typography";
-import Notifications from "../../pages/notifications";
-import Maps from "../../pages/maps";
-import Tables from "../../pages/tables";
+import Typography from "../../pages/typography/Typography";
+import Notifications from "../../pages/notifications/Notifications";
+import Maps from "../../pages/maps/Maps";
+import Tables from "../../pages/tables/Tables";
 
 import TablesEpis from "../../pages/tables/TablesEpis";
 
 import TableUsers from "../../pages/tables/TableUsers";
-import Icons from "../../pages/icons";
-import Charts from "../../pages/charts";
+import Icons from "../../pages/icons/Icons";
+import Charts from "../../pages/charts/Charts";
 import ScrollToTop from "./ScrollToTop";
 
 // context

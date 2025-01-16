@@ -6,8 +6,8 @@ import Grid from '@mui/material/Grid'
 
 import { localization }  from './localization';
 import { tableIcons }  from './icons';
-import Edit from '@material-ui/icons/Edit';
-import Clear from '@material-ui/icons/Clear'
+import Edit from '@mui/icons-material/Edit';
+import Clear from '@mui/icons-material/Clear'
 import { IconButton } from '@mui/material';
 // import Paper from '@mui/material/Paper'
 // import { Button, Link } from "@mui/material";
@@ -18,8 +18,8 @@ import axiosInstance from '../../axios';
 import MaterialTable from "material-react-table";
 //import axios from 'axios'
 //import Alert from '@mui/material/Alert';
-// import Duplicate from '@material-ui/icons/LibraryAdd';
-// import { BorderColor } from '@material-ui/icons';
+// import Duplicate from '@mui/icons-material/LibraryAdd';
+// import { BorderColor } from '@mui/icons-material';
 // import { TableCell, Table, TableRow } from '@mui/material';
 import  { Chip } from "@mui/material";
 //import moment from "moment"

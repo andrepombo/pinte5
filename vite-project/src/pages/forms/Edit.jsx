@@ -1,7 +1,7 @@
 import React from 'react'
 //import EmployeeForm from "./EmployeeForm";
 import PageHeader from "../../components/ColabHeader";
-import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
+import PeopleOutlineTwoToneIcon from '@mui/icons-material/PeopleOutlineTwoTone';
 import { Paper,makeStyles } from '@mui/material';
 import EditForm from './EditForm';
 import ColabEquipes from '../tables/ColabEquipes';

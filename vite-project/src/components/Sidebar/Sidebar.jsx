@@ -13,7 +13,7 @@ import {
   HomeWork as HomeWorkIcon,
   People,
   LocalHospital as Epi,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { useTheme } from "@mui/styles";
 import { withRouter } from "react-router-dom";
 import classNames from "classnames";
