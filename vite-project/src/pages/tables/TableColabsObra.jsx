@@ -1,5 +1,5 @@
 import React from "react";
-//import { Grid } from "@material-ui/core";
+//import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 //import MUIDataTable from "mui-datatables";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import {
   // OutlinedInput,
   // MenuItem,
   Button
-} from "@material-ui/core";
+} from "@mui/material";
 
 // components
 import PageTitle from "../../components/PageTitle/PageTitle";

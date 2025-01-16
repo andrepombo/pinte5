@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axiosInstance from '../../axios';
 //import { useNavigate } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom";
-import { Grid, } from '@material-ui/core';
+import { Grid, } from '@mui/material';
 import Controls from "../../components/Controls/Controls";
 import { useForm, Form } from '../../components/useForm';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
+import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import InputMask from 'react-input-mask';
 

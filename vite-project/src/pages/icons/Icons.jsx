@@ -8,7 +8,7 @@ import {
   Menu,
   MenuItem,
   Button
-} from "@material-ui/core";
+} from "@mui/material";
 import * as Icons from "@material-ui/icons";
 
 // styles

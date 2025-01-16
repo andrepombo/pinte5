@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@mui/material/styles';
 
 //import Avatar from 'react-avatar';
-import Grid from '@material-ui/core/Grid'
+import Grid from '@mui/material/Grid'
 
 import { localization }  from './localization';
 import { tableIcons }  from './icons';
 import Edit from '@material-ui/icons/Edit';
 import Clear from '@material-ui/icons/Clear'
-import { IconButton } from '@material-ui/core';
-// import Paper from '@material-ui/core/Paper'
-// import { Button, Link } from "@material-ui/core";
+import { IconButton } from '@mui/material';
+// import Paper from '@mui/material/Paper'
+// import { Button, Link } from "@mui/material";
 import axiosInstance from '../../axios';
 
 //import DateFnsUtils from "@date-io/date-fns"; // import
@@ -20,14 +20,14 @@ import MaterialTable from "material-react-table";
 //import Alert from '@mui/material/Alert';
 // import Duplicate from '@material-ui/icons/LibraryAdd';
 // import { BorderColor } from '@material-ui/icons';
-// import { TableCell, Table, TableRow } from '@material-ui/core';
-import  { Chip } from "@material-ui/core";
+// import { TableCell, Table, TableRow } from '@mui/material';
+import  { Chip } from "@mui/material";
 //import moment from "moment"
 
 import useStyles from "./styles";
 // import { Autocomplete } from '@mui/material';
-// import { TextField } from '@material-ui/core';
-import { Link } from "@material-ui/core";
+// import { TextField } from '@mui/material';
+import { Link } from "@mui/material";
 import { useParams } from 'react-router-dom';
 
 

@@ -2,10 +2,10 @@ import React from 'react'
 //import EmployeeForm from "./EmployeeForm";
 import PageHeader from "../../components/ColabHeader";
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
-import { Paper,makeStyles } from '@material-ui/core';
+import { Paper,makeStyles } from '@mui/material';
 import EquipeForm from './EquipeForm';
 import ColabEquipes from '../tables/ColabEquipes';
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 
 
 

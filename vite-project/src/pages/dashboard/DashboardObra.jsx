@@ -8,7 +8,7 @@ import {
   OutlinedInput,
   MenuItem,
   Button
-} from "@material-ui/core";
+} from "@mui/material";
 import { useTheme } from "@material-ui/styles";
 import {
   ResponsiveContainer,

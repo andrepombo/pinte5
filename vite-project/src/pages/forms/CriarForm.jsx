@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axiosInstance from '../../axios';
 //import { useNavigate } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom";
-import { Grid, } from '@material-ui/core';
+import { Grid, } from '@mui/material';
 import Controls from "../../components/Controls/Controls";
 import { useForm, Form } from '../../components/useForm';
 import MenuItem from '@mui/material/MenuItem';
@@ -14,7 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //import * as employeeService from "../../services/employeeService";
-import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
+import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
 const currencies = [
     {
