@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 //import MUIDataTable from "mui-datatables";
 
 // components
-import PageTitle from "../../components/PageTitle";
+import PageTitle from "../../components/PageTitle/PageTitle";
 // import Widget from "../../components/Widget";
 // import Table from "../dashboard/components/Table/Table";
 
