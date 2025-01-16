@@ -1,8 +1,8 @@
 import React from "react";
 import {
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
   withRouter,
 } from "react-router-dom";
 import classnames from "classnames";
@@ -41,7 +41,7 @@ import EditColab from "../../pages/forms/Edit";
 import EquipeColab from "../../pages/forms/Equipe";
 import Typography from "../../pages/typography/Typography";
 import Notifications from "../../pages/notifications/Notifications";
-import Maps from "../../pages/maps/Maps";
+// import Maps from "../../pages/maps/Maps";
 import Tables from "../../pages/tables/Tables";
 
 import TablesEpis from "../../pages/tables/TablesEpis";
@@ -72,7 +72,7 @@ function Layout(props) {
             })}
           >
             <div className={classes.fakeToolbar} />
-            <Switch>
+            <Routes>
               <Route path="/app/dashboard" component={Dashboard} />
               <Route path="/app/teste2" component={DashboardObra} />
               <Route path="/app/typography" component={Typography} />
@@ -97,12 +97,12 @@ function Layout(props) {
               <Route
                 exact
                 path="/app/ui"
-                render={() => <Redirect to="/app/ui/icons" />}
+                render={() => <Navigate to="/app/ui/icons" />}
               />
               <Route path="/app/ui/maps" component={Maps} />
               <Route path="/app/ui/icons" component={Icons} />
               <Route path="/app/ui/charts" component={Charts} />
-            </Switch>
+            </Routes>
             {/* <Box
               mt={5}
               width={"100%"}

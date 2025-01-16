@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from "@mui/styles";
 import ApexCharts from "react-apexcharts";
-import axiosInstance from '../../../../axios';
+// import axiosInstance from '../../../../axios';
 import { useParams } from 'react-router-dom';
 import './heatmap.css';
 
@@ -10,7 +10,7 @@ import AutoCompleteCustom from "../../../../components/Widget/AutoCompleteMultip
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import axios, {AxiosResponse} from "axios";
+// import axios from "axios";
 
 import CircularProgress from '@mui/material/CircularProgress';
 
