@@ -1,59 +1,49 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/system";
+import { Drawer } from "@mui/material";
 
 const drawerWidth = 240;
 
-export default makeStyles(theme => ({
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 36,
-  },
-  hide: {
-    display: "none",
-  },
-  drawer: {
+export const DrawerContainer = styled(Drawer)({
+  width: drawerWidth,
+  flexShrink: 0,
+  whiteSpace: "nowrap",
+});
+
+export const DrawerOpen = styled(Drawer)(({ theme }) => ({
+  width: drawerWidth,
+  transition: theme.transitions.create("width", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen,
+  }),
+}));
+
+export const DrawerClose = styled(Drawer)(({ theme }) => ({
+  transition: theme.transitions.create("width", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  overflowX: "hidden",
+  width: theme.spacing(7) + 40,
+  [theme.breakpoints.down("sm")]: {
     width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: "nowrap",
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: "hidden",
-    width: theme.spacing(7) + 40,
-    [theme.breakpoints.down("sm")]: {
-      width: drawerWidth,
-    },
-  },
-  toolbar: {
-    ...theme.mixins.toolbar,
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  /* sidebarList: {
-    marginTop: theme.spacing(6),
-  }, */
-  mobileBackButton: {
-    marginTop: theme.spacing(0.5),
-    marginLeft: 18,
-    [theme.breakpoints.only("sm")]: {
-      marginTop: theme.spacing(0.625),
-    },
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
   },
 }));
+
+export const Toolbar = styled("div")(({ theme }) => ({
+  ...theme.mixins.toolbar,
+}));
+
+export const MobileBackButton = styled("div")({
+  marginTop: "0.5rem",
+  marginLeft: "18px",
+  "@media (max-width: 600px)": {
+    marginTop: "0.625rem",
+  },
+  "@media (min-width: 768px)": {
+    display: "none",
+  },
+});
+
+export const SidebarList = styled("div")({
+  paddingTop: "20px",
+});

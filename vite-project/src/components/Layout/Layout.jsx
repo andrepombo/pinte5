@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import classnames from "classnames";
-import useStyles from "./styles";
+import { Root, Content, ContentShift, FakeToolbar, Link } from './styles';  // Importing from styles.js
 
 // components
 import Header from "../Header/Header";
@@ -26,7 +22,6 @@ import EditColab from "../../pages/forms/Edit";
 import EquipeColab from "../../pages/forms/Equipe";
 import Typography from "../../pages/typography/Typography";
 import Notifications from "../../pages/notifications/Notifications";
-// import Maps from "../../pages/maps/Maps";
 import Tables from "../../pages/tables/Tables";
 import TablesEpis from "../../pages/tables/TablesEpis";
 import TableUsers from "../../pages/tables/TableUsers";
@@ -38,23 +33,20 @@ import ScrollToTop from "./ScrollToTop";
 import { useLayoutState } from "../../context/LayoutContext";
 
 function Layout(props) {
-  var classes = useStyles();
-
-  // global 
-  var layoutState = useLayoutState();
+  var layoutState = useLayoutState();  // Removed styles() and no longer use 'classes'
 
   return (
-    <div className={classes.root}>
+    <Root>  {/* Using styled components directly */}
       <>
         <Header history={props.history} />
         <ScrollToTop />
         <Sidebar />
-        <div
-          className={classnames(classes.content, {
-            [classes.contentShift]: layoutState.isSidebarOpened,
+        <Content
+          className={classnames({
+            [ContentShift]: layoutState.isSidebarOpened,
           })}
         >
-          <div className={classes.fakeToolbar} />
+          <FakeToolbar />
           <Routes>
             <Route path="/app/dashboard" component={Dashboard} />
             <Route path="/app/teste2" component={DashboardObra} />
@@ -74,18 +66,14 @@ function Layout(props) {
             <Route path="/app/colaboradores" component={Colabs} />
             <Route path="/app/colabsobra/:board/:obra_id" component={ColabsObra} />
             <Route path="/app/notifications" component={Notifications} />
-            <Route
-              exact
-              path="/app/ui"
-              render={() => <Navigate to="/app/ui/icons" />}
-            />
-            <Route path="/app/ui/maps" component={Maps} />
+            <Route exact path="/app/ui" render={() => <Navigate to="/app/ui/icons" />} />
+            {/* <Route path="/app/ui/maps" component={Maps} /> */}
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
           </Routes>
-        </div>
+        </Content>
       </>
-    </div>
+    </Root>
   );
 }
 

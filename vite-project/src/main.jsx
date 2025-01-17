@@ -1,39 +1,11 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// // import App from './App.jsx'
-// import App from './components/App'
-
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
-
-// import { ThemeProvider, CssBaseline } from "@mui/material";
-// import App from "./App";
-// import theme from "./themes/theme";
-
-// function Root() {
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <CssBaseline />
-//       <App />
-//     </ThemeProvider>
-//   );
-// }
-
-// export default Root;
-
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import App from "./components/App";
-import defaultTheme from "./themes/theme";
-
-// Context Providers (if needed)
-import { UserProvider } from "./context/UserContext";
+import App from "./components/App";  // Your main app component
+import { LayoutProvider } from "./context/LayoutContext";  // Import LayoutProvider
+import { UserProvider } from "./context/UserContext"; // Assuming you already have this
+import { BrowserRouter } from "react-router-dom"; // Router setup
+import { ThemeProvider, CssBaseline } from "@mui/material"; // MUI Theme and global styling
+import defaultTheme from "./themes/theme"; // Your theme file
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -43,7 +15,9 @@ root.render(
       <CssBaseline /> {/* Ensures consistent global styling */}
       <BrowserRouter>
         <UserProvider>
-          <App />
+          <LayoutProvider> {/* Wrap the App with LayoutProvider */}
+            <App />
+          </LayoutProvider>
         </UserProvider>
       </BrowserRouter>
     </ThemeProvider>

@@ -6,12 +6,11 @@ import {
   HomeWork as HomeWorkIcon,
   People,
 } from "@mui/icons-material";
-import { useTheme } from "@mui/styles";
-import { useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 import classNames from "classnames";
 
-// styles
-import useStyles from "./styles";
+// styles (using styled instead of makeStyles)
+import { DrawerContainer, DrawerOpen, DrawerClose, Toolbar, MobileBackButton, SidebarList } from './styles'; 
 
 // components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
@@ -36,7 +35,6 @@ const structure2 = [
 ];
 
 function Sidebar({ location }) {
-  var classes = useStyles();
   var theme = useTheme();
 
   // global
@@ -52,7 +50,7 @@ function Sidebar({ location }) {
     return function cleanup() {
       window.removeEventListener("resize", handleWindowWidthChange);
     };
-  });
+  }, []);
 
   function parseJwt(token) {
     if (!token) { return; }
@@ -69,29 +67,26 @@ function Sidebar({ location }) {
   return (
     <Drawer
       variant={isPermanent ? "permanent" : "temporary"}
-      className={classNames(classes.drawer, {
-        [classes.drawerOpen]: isSidebarOpened,
-        [classes.drawerClose]: !isSidebarOpened,
+      className={classNames({
+        [DrawerContainer]: true,
+        [DrawerOpen]: isSidebarOpened,
+        [DrawerClose]: !isSidebarOpened,
       })}
       classes={{
         paper: classNames({
-          [classes.drawerOpen]: isSidebarOpened,
-          [classes.drawerClose]: !isSidebarOpened,
+          [DrawerOpen]: isSidebarOpened,
+          [DrawerClose]: !isSidebarOpened,
         }),
       }}
       open={isSidebarOpened}
     >
-      <div className={classes.toolbar} />
-      <div className={classes.mobileBackButton}>
+      <Toolbar />
+      <MobileBackButton>
         <IconButton onClick={() => toggleSidebar(layoutDispatch)}>
-          <ArrowBackIcon
-            classes={{
-              root: classNames(classes.headerIcon, classes.headerIconCollapse),
-            }}
-          />
+          <ArrowBackIcon />
         </IconButton>
-      </div>
-      <List className={classes.sidebarList}>
+      </MobileBackButton>
+      <SidebarList>
         {structure3.map(link => (
           <SidebarLink
             key={link.id}
@@ -100,7 +95,7 @@ function Sidebar({ location }) {
             {...link}
           />
         ))}
-      </List>
+      </SidebarList>
     </Drawer>
   );
 

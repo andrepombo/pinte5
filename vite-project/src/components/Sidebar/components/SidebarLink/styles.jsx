@@ -1,62 +1,58 @@
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/system";
+import { Divider, ListItem } from "@mui/material";
 
-export default makeStyles(theme => ({
-  link: {
-    textDecoration: "none",
-    "&:hover, &:focus": {
-      backgroundColor: theme.palette.background.light,
-    },
+export const LinkStyled = styled(ListItem)({
+  textDecoration: "none",
+  "&:hover, &:focus": {
+    backgroundColor: "#f0f0f0", // Modify this as needed
   },
-  externalLink: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textDecoration: 'none'
+});
+
+export const ExternalLink = styled("a")({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textDecoration: "none",
+});
+
+export const LinkIconStyled = styled("div")({
+  marginRight: 16,
+  transition: "color 0.3s",
+  width: 24,
+  display: "flex",
+  justifyContent: "center",
+  "&.active": {
+    color: "#1976d2", // Example active color
   },
-  linkActive: {
-    backgroundColor: theme.palette.background.light,
+});
+
+export const LinkTextStyled = styled("span")({
+  color: "#888",
+  fontSize: 16,
+  transition: "opacity 0.3s, color 0.3s",
+  "&.active": {
+    color: "#333", // Example active color
   },
-  linkNested: {
-    paddingLeft: 0,
-    "&:hover, &:focus": {
-      backgroundColor: "#FFFFFF",
-    },
-  },
-  linkIcon: {
-    marginRight: theme.spacing(1),
-    color: theme.palette.text.secondary + "99",
-    transition: theme.transitions.create("color"),
-    width: 24,
-    display: "flex",
-    justifyContent: "center",
-  },
-  linkIconActive: {
-    color: theme.palette.primary.main,
-  },
-  linkText: {
-    padding: 0,
-    color: theme.palette.text.secondary + "CC",
-    transition: theme.transitions.create(["opacity", "color"]),
-    fontSize: 16,
-  },
-  linkTextActive: {
-    color: theme.palette.text.primary,
-  },
-  linkTextHidden: {
+  "&.hidden": {
     opacity: 0,
   },
-  nestedList: {
-    paddingLeft: theme.spacing(2) + 30,
-  },
-  sectionTitle: {
-    marginLeft: theme.spacing(4.5),
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
-  divider: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(4),
-    height: 1,
-    backgroundColor: "#D8D8D880",
-  },
-}));
+});
+
+export const SectionTitleStyled = styled("span")({
+  marginLeft: 16,
+  marginTop: 8,
+  marginBottom: 8,
+  fontSize: 16,
+  fontWeight: "bold",
+});
+
+export const DividerStyled = styled(Divider)({
+  marginTop: 16,
+  marginBottom: 32,
+  height: 1,
+  backgroundColor: "#dcdcdc",
+});
+
+export const NestedList = styled("div")({
+  paddingLeft: 16,
+});

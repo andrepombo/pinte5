@@ -1,12 +1,8 @@
 import React from "react";
 import axiosInstance from '../axios';
 
-
 var UserStateContext = React.createContext();
 var UserDispatchContext = React.createContext();
-
-
-
 
 function userReducer(state, action) {
   switch (action.type) {
@@ -43,14 +39,12 @@ function useUserState() {
   return context;
 }
 
-
 function useUserDispatch() {
   var context = React.useContext(UserDispatchContext);
   if (context === undefined) {
     throw new Error("useUserDispatch must be used within a UserProvider");
   }
   return context;
-  
 }
 
 function parseJwt(token) {
@@ -60,75 +54,67 @@ function parseJwt(token) {
   return JSON.parse(window.atob(base64));
 }
 
-
-
-
-export { UserProvider, useUserState, useUserDispatch, loginUser, signOut, parseJwt};
+export { UserProvider, useUserState, useUserDispatch, loginUser, signOut, parseJwt };
 
 // ###########################################################
 
 function loginUser(dispatch, login, password, history, setIsLoading, setError) {
-//   if (!!login && !!password) {
-//     setTimeout(() => {
-//       localStorage.setItem('id_token', 1)
-//       setError(null)
-//       setIsLoading(false)
-//       dispatch({ type: 'LOGIN_SUCCESS' })
-
-//       history.push('/app/dashboard')
-//     }, 2000);
-//   } else {
-//     dispatch({ type: "LOGIN_FAILURE" });
-//     setError(true);
-//     setIsLoading(false);
-//   }
-// }
-
-
+  if (!login || !password) {
+    setError(true);
+    return;
+  }
+  
+  setIsLoading(true); // Start loading
 
   axiosInstance
     .post(`login/`, {
-        email: login,
-        password: password,
+      email: login,
+      password: password,
     })
     .then((res) => {
-        setError(false);
-        setIsLoading(true);
-        setTimeout(() => {
-          localStorage.setItem('access_token', res.data.access);
-          localStorage.setItem('refresh_token', res.data.refresh);
-          axiosInstance.defaults.headers['Authorization'] =
-              'Bearer ' + localStorage.getItem('access_token');
-          setError(null)
-          setIsLoading(false)
-          const userInfo = parseJwt(localStorage.getItem('access_token'))
-          const is_staff = userInfo.is_staff
-          console.log(is_staff)
-          dispatch({ type: 'LOGIN_SUCCESS' })
-          if (is_staff) {
-            history.push('/app/dashboard');
-            
-          } else {
-            history.push('/app/tables');
-            
-          }
-        })
-    })
-    .catch(error => {
-      console.log(error.response)
-      setError(true)
-    })
+      setError(false); // Reset error state
+      setIsLoading(false); // Stop loading
 
-  };
+      // Store tokens
+      localStorage.setItem('access_token', res.data.access);
+      localStorage.setItem('refresh_token', res.data.refresh);
+      axiosInstance.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
+
+      const userInfo = parseJwt(localStorage.getItem('access_token'));
+      const is_staff = userInfo.is_staff;
+
+      dispatch({ type: 'LOGIN_SUCCESS' });
+
+      if (is_staff) {
+        history.push('/app/dashboard');
+      } else {
+        history.push('/app/tables');
+      }
+    })
+    .catch((error) => {
+      setError(true); // Set error state if login fails
+      setIsLoading(false); // Stop loading
+      console.log(error.response);
+    });
+}
 
 function signOut(dispatch, history) {
-  const response = axiosInstance.post('logout/blacklist/', {
-    refresh_token: localStorage.getItem('refresh_token'),
-  });
-  localStorage.removeItem('access_token');
-  localStorage.removeItem('refresh_token');
-  localStorage.clear();
-  axiosInstance.defaults.headers['Authorization'] = null;
-  dispatch({ type: "SIGN_OUT_SUCCESS" });
-  history.push("/login");
+  axiosInstance
+    .post('logout/blacklist/', {
+      refresh_token: localStorage.getItem('refresh_token'),
+    })
+    .then(() => {
+      // Clear localStorage and axios headers
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.clear();
+      axiosInstance.defaults.headers['Authorization'] = null;
+
+      // Dispatch the sign-out action and redirect
+      dispatch({ type: "SIGN_OUT_SUCCESS" });
+      history.push("/login");
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
 }
