@@ -18,7 +18,7 @@ import {
   Send as SendIcon,
   ArrowBack as ArrowBackIcon
 } from "@mui/icons-material";
-import { fade } from "@mui/material/styles/colorManipulator";
+import { fade } from "@mui/styles/colorManipulator";
 import classNames from "classnames";
 
 import { Badge, Typography } from "../Wrappers";

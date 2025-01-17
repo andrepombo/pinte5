@@ -3,7 +3,7 @@ import {
   Route,
   Routes,
   Navigate,
-  withRouter,
+  useNavigate,
 } from "react-router-dom";
 import classnames from "classnames";
 //import {Box, IconButton, Link} from '@mui/material'
@@ -184,4 +184,4 @@ function Layout(props) {
   );
 }
 
-export default withRouter(Layout);
+export default useNavigate(Layout);

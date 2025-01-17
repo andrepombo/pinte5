@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axiosInstance from '../../axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm, Form } from './useForm';
 import Controls from './Controls';
 
@@ -14,7 +14,6 @@ import {
   TextField,
   Fade,
 } from "@mui/material";
-import { withRouter } from "react-router-dom";
 // import classnames from "classnames";
 
 // styles
@@ -41,7 +40,7 @@ function Login(props) {
   var [nameValue, setNameValue] = useState("");
   var [loginValue, setLoginValue] = useState("");
   var [passwordValue, setPasswordValue] = useState("");
-  let history = useHistory();
+  let history = useNavigate();
 
   const initialFValues = {
     username: '',
@@ -390,4 +389,4 @@ const handleSubmit = (e) => {
   );
 }
 
-export default withRouter(Login);
+export default useNavigate(Login);
