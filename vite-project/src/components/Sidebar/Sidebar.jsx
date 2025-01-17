@@ -30,9 +30,6 @@ function Sidebar({ location }) {
   const { isSidebarOpened } = useLayoutState();
   const layoutDispatch = useLayoutDispatch();
 
-
- console.log(DrawerOpen)
-
   // Parse JWT token
   const parseJwt = (token) => {
     if (!token) return null;

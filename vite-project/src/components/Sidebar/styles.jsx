@@ -55,7 +55,7 @@ export const MobileBackButton = styled("div")({
 });
 
 export const SidebarList = styled(List)({
-  paddingTop: "20px",
+  paddingTop: "30px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center", // Center align icons
