@@ -1,27 +1,24 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@mui/styles'
+import React, { useState } from 'react';
+import { TextField, Grid, Button, CircularProgress, Typography } from '@mui/material';
+import { styled } from '@mui/system';
 
 export function useForm(initialFValues, validateOnChange = false, validate) {
-
-
     const [values, setValues] = useState(initialFValues);
     const [errors, setErrors] = useState({});
 
-    const handleInputChange = e => {
-        const { name, value } = e.target
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
         setValues({
             ...values,
-            [name]: value
-        })
-        if (validateOnChange)
-            validate({ [name]: value })
-    }
+            [name]: value,
+        });
+        if (validateOnChange) validate({ [name]: value });
+    };
 
     const resetForm = () => {
         setValues(initialFValues);
-        setErrors({})
-    }
-
+        setErrors({});
+    };
 
     return {
         values,
@@ -29,28 +26,22 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
         errors,
         setErrors,
         handleInputChange,
-        resetForm
-
-    }
+        resetForm,
+    };
 }
 
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '95%',
-            margin: theme.spacing(1)
-        }
-    }
-}))
+const StyledForm = styled('form')(({ theme }) => ({
+    '& .MuiFormControl-root': {
+        width: '95%',
+        margin: theme.spacing(1),  // Ensure the theme is provided for spacing
+    },
+}));
 
 export function Form(props) {
-
-    const classes = useStyles();
     const { children, ...other } = props;
     return (
-        <form className={classes.root} autoComplete="off" {...other}>
-            {props.children}
-        </form>
-    )
+        <StyledForm autoComplete="off" {...other}>
+            {children}
+        </StyledForm>
+    );
 }

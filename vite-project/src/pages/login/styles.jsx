@@ -1,148 +1,79 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 
-export default makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
-    height: "100vh",
-    width: "100vw",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-    top: 0,
-    left: 0,
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logotypeContainer: {
-    backgroundColor: theme.palette.primary.main,
-    width: "60%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    [theme.breakpoints.down("md")]: {
-      width: "50%",
-    },
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   logotypeImage: {
-    width: 165,
-    marginBottom: theme.spacing(4),
+    width: '120px',
+    height: '120px',
   },
   logotypeText: {
-    color: "white",
-    fontWeight: 500,
-    fontSize: 84,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 48,
-    },
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    marginTop: '1rem',
   },
   formContainer: {
-    width: "40%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    [theme.breakpoints.down("md")]: {
-      width: "50%",
-    },
+    width: '100%',
+    maxWidth: '400px',
+    padding: '2rem',
+    backgroundColor: '#fff',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
   },
   form: {
-    width: 320,
-  },
-  tab: {
-    fontWeight: 400,
-    fontSize: 18,
-  },
-  greeting: {
-    fontWeight: 500,
-    textAlign: "center",
-    marginTop: theme.spacing(4),
-  },
-  subGreeting: {
-    fontWeight: 500,
-    textAlign: "center",
-    marginTop: theme.spacing(2),
-  },
-  googleButton: {
-    marginTop: theme.spacing(6),
-    boxShadow: theme.customShadows.widget,
-    backgroundColor: "white",
-    width: "100%",
-    textTransform: "none",
-  },
-  googleButtonCreating: {
-    marginTop: 0,
-  },
-  googleIcon: {
-    width: 30,
-    marginRight: theme.spacing(2),
-  },
-  creatingButtonContainer: {
-    marginTop: theme.spacing(2.5),
-    height: 46,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  createAccountButton: {
-    height: 46,
-    textTransform: "none",
-  },
-  formDividerContainer: {
-    marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(4),
-    display: "flex",
-    alignItems: "center",
-  },
-  formDividerWord: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-  },
-  formDivider: {
-    flexGrow: 1,
-    height: 1,
-    backgroundColor: theme.palette.text.hint + "40",
-  },
-  errorMessage: {
-    textAlign: "center",
-  },
-  textFieldUnderline: {
-    "&:before": {
-      borderBottomColor: theme.palette.primary.light,
-    },
-    "&:after": {
-      borderBottomColor: theme.palette.primary.main,
-    },
-    "&:hover:before": {
-      borderBottomColor: `${theme.palette.primary.light} !important`,
-    },
-  },
-  textField: {
-    borderBottomColor: theme.palette.background.light,
+    display: 'flex',
+    flexDirection: 'column',
   },
   formButtons: {
-    width: "100%",
-    marginTop: theme.spacing(4),
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    marginTop: '1rem',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
-  forgetButton: {
-    textTransform: "none",
-    fontWeight: 400,
+  greeting: {
+    fontSize: '2rem',
+    textAlign: 'center',
+    marginBottom: '1rem',
   },
-  loginLoader: {
-    marginLeft: theme.spacing(4),
+  errorMessage: {
+    textAlign: 'center',
+    color: 'red',
+    fontSize: '0.875rem',
   },
-  copyright: {
-    marginTop: theme.spacing(4),
-    whiteSpace: "nowrap",
-    [theme.breakpoints.up("md")]: {
-      position: "absolute",
-      bottom: theme.spacing(2),
-    },
+  subGreeting: {
+    fontSize: '1.25rem',
+    textAlign: 'center',
+    marginBottom: '1rem',
+  },
+  creatingButtonContainer: {
+    marginTop: '2rem',
+  },
+  createAccountButton: {
+    fontSize: '1rem',
+    padding: '0.75rem',
+  },
+  formDividerContainer: {
+    marginTop: '1rem',
+    marginBottom: '1rem',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  formDivider: {
+    width: '80%',
+    borderBottom: '1px solid #ddd',
+  },
+  tab: {
+    textTransform: 'none',
   },
 }));
+
+export default useStyles;

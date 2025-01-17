@@ -25,7 +25,7 @@ import logo from "./logo.svg";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 
 function Login(props) {
-  var classes = useStyles();
+  const classes = useStyles();  // This will apply the styles from `styles.js`
 
   // global
   var userDispatch = useUserDispatch();
