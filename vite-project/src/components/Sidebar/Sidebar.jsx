@@ -87,7 +87,7 @@ function Sidebar({ location }) {
         </IconButton>
       </MobileBackButton>
       <SidebarList>
-        {structure3.map(link => (
+        {structure.map(link => (
           <SidebarLink
             key={link.id}
             location={location}
