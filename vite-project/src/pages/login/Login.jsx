@@ -14,14 +14,12 @@ import {
   TextField,
   Fade,
 } from "@mui/material";
-// import classnames from "classnames";
 
 // styles
 import useStyles from "./styles";
 
 // logo
 import logo from "./logo.svg";
-// import google from "../../images/google.svg";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -66,16 +64,10 @@ function Login(props) {
 
 const {
   values,
-  // setValues,
   errors,
   setErrors,
   handleInputChange,
-  // resetForm
 } = useForm(initialFValues, true, validate);
-
-//console.log(values.email)
-
-
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -87,7 +79,7 @@ const handleSubmit = (e) => {
   if(nameValue === "a"){
     errorList.push("Please enter last name")
   }
-  //if(errorList.length < 1){
+
   if(validate){
     axiosInstance
       .post(`create/`, {
@@ -96,7 +88,7 @@ const handleSubmit = (e) => {
           password: values.password,
       })
       .then((res) => {
-          history.go('/login');
+          history('/login');
           console.log(res.data);
       })
       .catch(error => {
@@ -108,11 +100,9 @@ const handleSubmit = (e) => {
     setErrorMessages(errorList)
     setError(true)
     setIsLoading(false)
-    
   }
 };     
-  
-  
+
   return (
     <Form onSubmit={handleSubmit}>
       <Grid container className={classes.container}>
@@ -130,20 +120,13 @@ const handleSubmit = (e) => {
               centered
             >
               <Tab label="Login" classes={{ root: classes.tab }} />
-              {/* <Tab label="Novo Usuário" classes={{ root: classes.tab }} /> */}
             </Tabs>
             {activeTabId === 0 && (
               <React.Fragment>
                 <Typography variant="h1" className={classes.greeting}>
                   Bom Dia, Usuário(a)
                 </Typography>
-                {/* <Button size="large" className={classes.googleButton}>
-                  <img src={google} alt="google" className={classes.googleIcon} />
-                  &nbsp;Sign in with Google
-                </Button> */}
                 <div className={classes.formDividerContainer}>
-                  <div className={classes.formDivider} />
-                  {/* <Typography className={classes.formDividerWord}>or</Typography> */}
                   <div className={classes.formDivider} />
                 </div>
                 <Fade in={error}>
@@ -155,15 +138,7 @@ const handleSubmit = (e) => {
                     id="email"
                     variant="outlined"
                     label="E-mail"
-                    // InputProps={{
-                    //   classes: {
-                    //     underline: classes.textFieldUnderline,
-                    //     input: classes.textField,
-                    //   },
-                    // }}
-                    //value={loginValue}
                     onChange={e => setLoginValue(e.target.value)}
-                    //error={errors.fullName}
                     {...(error && {error:true,helperText:error})}
                     margin="normal"
                     placeholder="Email Adress"
@@ -175,13 +150,6 @@ const handleSubmit = (e) => {
                     name="password"
                     variant="outlined"
                     label="Password"
-                    // InputProps={{
-                    //   classes: {
-                    //     underline: classes.textFieldUnderline,
-                    //     input: classes.textField,
-                    //   },
-                    // }}
-                    //value={passwordValue}
                     onChange={e => setPasswordValue(e.target.value)}
                     margin="normal"
                     autoComplete="current-password"
@@ -195,9 +163,7 @@ const handleSubmit = (e) => {
                       <CircularProgress size={26} className={classes.loginLoader} />
                     ) : (
                       <Button
-                        disabled={
-                          loginValue.length === 0 || passwordValue.length === 0
-                        }
+                        disabled={loginValue.length === 0 || passwordValue.length === 0}
                         onClick={() =>
                           loginUser(
                             userDispatch,
@@ -208,20 +174,12 @@ const handleSubmit = (e) => {
                             setError,
                           )
                         }
-                        //onClick={handleLogin}
                         color="primary"
                         size="large"
                       >
                         Login
                       </Button>
                     )}
-                    {/* <Button
-                      color="primary"
-                      size="large"
-                      className={classes.forgetButton}
-                    >
-                      Forget Password
-                    </Button> */}
                 </div>
               </React.Fragment>
             )}
@@ -239,119 +197,35 @@ const handleSubmit = (e) => {
                   </Typography>
                 </Fade>
                 <Controls.Input
-                        name="username"
-                        label="Usuário"
-                        value={values.username}
-                        onChange={handleInputChange}
-                        error={errors.username}
-                    />
-                {/* <TextField
-                  id="username"
-                  name="username"
-                  variant="outlined"
-                  label="Usuário"
-                  InputProps={{
-                    classes: {
-                      underline: classes.textFieldUnderline,
-                      input: classes.textField,
-                    },
-                  }}
-                  // value={nameValue}
-                  // onChange={e => setNameValue(e.target.value)}
-                  value={values.username}
-                  onChange={handleInputChange}
-                  //onChange={handleChange}
-                  margin="normal"
-                  placeholder="Usuário"
-                  type="text"
-                  fullWidth
-                  error={errors.username}
-                /> */}
+                    name="username"
+                    label="Usuário"
+                    value={values.username}
+                    onChange={handleInputChange}
+                    error={errors.username}
+                />
                 <Controls.Input
-                        label="Email"
-                        name="email"
-                        type="email"
-                        value={values.email}
-                        onChange={handleInputChange}
-                        error={errors.email}
-                    />
-                {/* <TextField
-                  id="email"
-                  variant="outlined"
-                  name="email"
-                  label="E-mail"
-                  // InputProps={{
-                  //   classes: {
-                  //     underline: classes.textFieldUnderline,
-                  //     input: classes.textField,
-                  //   },
-                  // }}
-                  // value={loginValue}
-                  // onChange={e => setLoginValue(e.target.value)}
-                  value={values.email}
-                  onChange={handleInputChange}
-                  // onChange={handleChange}
-                  //error={loginValue === "andre"}
-                  //helperText={loginValue === "andre" ? "erro" : 'Insira seu e-mail'}
-                  margin="normal"
-                  placeholder="Email Adress"
-                  type="email"
-                  fullWidth
-                  error={errors.email}
-                  
-                /> */}
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={values.email}
+                    onChange={handleInputChange}
+                    error={errors.email}
+                />
                 <Controls.Input
-                        label="Senha"
-                        name="password"
-                        type="password"
-                        value={values.password}
-                        onChange={handleInputChange}
-                        error={errors.password}
-                    />
-                {/* <TextField
-                  id="password"
-                  name="password"
-                  variant="outlined"
-                  label="Senha"
-                  InputProps={{
-                    classes: {
-                      underline: classes.textFieldUnderline,
-                      input: classes.textField,
-                    },
-                  }}
-                  // value={passwordValue}
-                  // onChange={e => setPasswordValue(e.target.value)}
-                  value={values.password}
-                  onChange={handleInputChange}
-                  // onChange={handleChange}
-                  margin="normal"
-                  placeholder="Senha"
-                  type="password"
-                  fullWidth
-                  error={errors.password}
-                /> */}
+                    label="Senha"
+                    name="password"
+                    type="password"
+                    value={values.password}
+                    onChange={handleInputChange}
+                    error={errors.password}
+                />
+    
                 <div className={classes.creatingButtonContainer}>
                   {isLoading ? (
                     <CircularProgress size={26} />
                   ) : (
                     <Button
-                      // onClick={() =>
-                      //   loginUser(
-                      //     userDispatch,
-                      //     loginValue,
-                      //     passwordValue,
-                      //     props.history,
-                      //     setIsLoading,
-                      //     setError,
-                      //   )
-                      // }
-                      //onClick={handleSubmit}
                       type="submit"
-                      // disabled={
-                      //   loginValue.length === 0 ||
-                      //   passwordValue.length === 0 ||
-                      //   nameValue.length === 0
-                      // }
                       size="large"
                       variant="contained"
                       color="primary"
@@ -362,31 +236,13 @@ const handleSubmit = (e) => {
                     </Button>
                   )}
                 </div>
-                {/* <div className={classes.formDividerContainer}>
-                  <div className={classes.formDivider} />
-                  <Typography className={classes.formDividerWord}>or</Typography>
-                  <div className={classes.formDivider} />
-                </div>
-                <Button
-                  size="large"
-                  className={classnames(
-                    classes.googleButton,
-                    classes.googleButtonCreating,
-                  )}
-                >
-                  <img src={google} alt="google" className={classes.googleIcon} />
-                  &nbsp;Sign in with Google
-                </Button> */}
               </React.Fragment>
             )}
           </div>
-          {/* <Typography color="primary" className={classes.copyright}>
-          © 2014-{new Date().getFullYear()} <a style={{ textDecoration: 'none', color: 'inherit' }} href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic</a>, LLC. All rights reserved.
-          </Typography> */}
         </div>
       </Grid>
     </Form>
   );
 }
 
-export default useNavigate(Login);
+export default Login;
