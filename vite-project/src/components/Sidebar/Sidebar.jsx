@@ -44,13 +44,28 @@ function Sidebar({ location }) {
 
   const [isPermanent, setPermanent] = useState(true);
 
-  useEffect(function() {
+  // Add theme to handleWindowWidthChange dependency
+  useEffect(() => {
     window.addEventListener("resize", handleWindowWidthChange);
     handleWindowWidthChange();
     return function cleanup() {
       window.removeEventListener("resize", handleWindowWidthChange);
     };
-  });
+  }, [theme]); // Dependency on theme ensures correct updates
+
+  // Function to handle window resizing and manage sidebar state
+  const handleWindowWidthChange = () => {
+    const windowWidth = window.innerWidth;
+    const breakpointWidth = theme.breakpoints.values.md; // Get the breakpoint from the theme
+    const isSmallScreen = windowWidth < breakpointWidth;
+
+    // Update the sidebar state based on screen width
+    if (isSmallScreen && isPermanent) {
+      setPermanent(false);
+    } else if (!isSmallScreen && !isPermanent) {
+      setPermanent(true);
+    }
+  };
 
   return (
     <Drawer
@@ -67,14 +82,8 @@ function Sidebar({ location }) {
         }),
       }}
       open={isSidebarOpened}
-      onClose={() => toggleSidebar(layoutDispatch)} // Close sidebar for temporary variant
+      onClose={() => toggleSidebar(layoutDispatch)} // For temporary variant
     >
-      <Toolbar />
-      <MobileBackButton>
-        <IconButton onClick={() => toggleSidebar(layoutDispatch)}>
-          <ArrowBackIcon />
-        </IconButton>
-      </MobileBackButton>
       <SidebarList>
         {menuStructure.map((link) => (
           <SidebarLink
@@ -87,18 +96,6 @@ function Sidebar({ location }) {
       </SidebarList>
     </Drawer>
   );
-}
-
-function handleWindowWidthChange() {
-  var windowWidth = window.innerWidth;
-  var breakpointWidth = theme.breakpoints.values.md;
-  var isSmallScreen = windowWidth < breakpointWidth;
-
-  if (isSmallScreen && isPermanent) {
-    setPermanent(false);
-  } else if (!isSmallScreen && !isPermanent) {
-    setPermanent(true);
-  }
 }
 
 export default Sidebar;
