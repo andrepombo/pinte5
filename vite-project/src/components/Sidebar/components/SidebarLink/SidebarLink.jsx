@@ -38,7 +38,7 @@ export default function SidebarLink({
   // Local state
   const [isOpen, setIsOpen] = useState(false);
 
-  // Safely check if location.pathname is available before using indexOf
+ 
   const isLinkActive =
     link && 
     (location.pathname === link || (location.pathname && location.pathname.indexOf(link) !== -1));
@@ -49,6 +49,22 @@ export default function SidebarLink({
         {label}
       </SectionTitleStyled>
     );
+
+
+  // var isLinkActive =
+  // link &&
+  // (location.pathname === link || location.pathname.indexOf(link) !== -1);
+
+  // if (type === "title")
+  //   return (
+  //     <Typography
+  //       className={classnames(classes.linkText, classes.sectionTitle, {
+  //         [classes.linkTextHidden]: !isSidebarOpened,
+  //       })}
+  //     >
+  //       {label}
+  //     </Typography>
+  // );
 
   if (type === "divider") return <DividerStyled />;
   if (link && link.includes("http")) {

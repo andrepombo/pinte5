@@ -1,7 +1,8 @@
 import { styled } from "@mui/system";
 import { Drawer } from "@mui/material";
+import { List } from "@mui/material";
 
-const drawerWidth = 240;
+const drawerWidth = 2;
 
 export const DrawerContainer = styled(Drawer)({
   width: drawerWidth,
@@ -23,9 +24,9 @@ export const DrawerClose = styled(Drawer)(({ theme }) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
-  width: theme.spacing(7) + 40,
+  width: 200, // Adjust width for closed state
   [theme.breakpoints.down("sm")]: {
-    width: drawerWidth,
+    width: 200 // Same for mobile
   },
 }));
 
@@ -44,6 +45,12 @@ export const MobileBackButton = styled("div")({
   },
 });
 
-export const SidebarList = styled("div")({
+export const SidebarList = styled(List)({
   paddingTop: "20px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center", // Center align icons
+  ".MuiListItemIcon-root": {
+    justifyContent: "center",
+  },
 });

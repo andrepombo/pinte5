@@ -1,22 +1,22 @@
 import React from "react";
 
-var LayoutStateContext = React.createContext();
-var LayoutDispatchContext = React.createContext();
+const LayoutStateContext = React.createContext();
+const LayoutDispatchContext = React.createContext();
 
 function layoutReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_SIDEBAR":
       return { ...state, isSidebarOpened: !state.isSidebarOpened };
-    default: {
+    default:
       throw new Error(`Unhandled action type: ${action.type}`);
-    }
   }
 }
 
 function LayoutProvider({ children }) {
-  var [state, dispatch] = React.useReducer(layoutReducer, {
-    isSidebarOpened: true,
+  const [state, dispatch] = React.useReducer(layoutReducer, {
+    isSidebarOpened: true, // Default state
   });
+
   return (
     <LayoutStateContext.Provider value={state}>
       <LayoutDispatchContext.Provider value={dispatch}>
@@ -27,7 +27,7 @@ function LayoutProvider({ children }) {
 }
 
 function useLayoutState() {
-  var context = React.useContext(LayoutStateContext);
+  const context = React.useContext(LayoutStateContext);
   if (context === undefined) {
     throw new Error("useLayoutState must be used within a LayoutProvider");
   }
@@ -35,18 +35,19 @@ function useLayoutState() {
 }
 
 function useLayoutDispatch() {
-  var context = React.useContext(LayoutDispatchContext);
+  const context = React.useContext(LayoutDispatchContext);
   if (context === undefined) {
     throw new Error("useLayoutDispatch must be used within a LayoutProvider");
   }
   return context;
 }
 
-export { LayoutProvider, useLayoutState, useLayoutDispatch, toggleSidebar };
-
-// ###########################################################
+// Action function to toggle sidebar
 function toggleSidebar(dispatch) {
-  dispatch({
-    type: "TOGGLE_SIDEBAR",
-  });
+  if (!dispatch) {
+    throw new Error("Dispatch is required to toggle sidebar");
+  }
+  dispatch({ type: "TOGGLE_SIDEBAR" });
 }
+
+export { LayoutProvider, useLayoutState, useLayoutDispatch, toggleSidebar };

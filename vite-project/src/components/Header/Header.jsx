@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Fab, Typography } from "@mui/material";
 import { Menu as MenuIcon, Person as AccountIcon, Send as SendIcon, ArrowBack as ArrowBackIcon } from "@mui/icons-material";
-import { styled, alpha } from "@mui/system"; // Importing styled and alpha from MUI System
+import { styled } from "@mui/system"; // Importing styled and alpha from MUI System
 
 // components
 import Notification from "../Notification/Notification";
