@@ -30,6 +30,9 @@ function Sidebar({ location }) {
   const { isSidebarOpened } = useLayoutState();
   const layoutDispatch = useLayoutDispatch();
 
+
+ console.log(DrawerOpen)
+
   // Parse JWT token
   const parseJwt = (token) => {
     if (!token) return null;
@@ -68,34 +71,36 @@ function Sidebar({ location }) {
   };
 
   return (
+
+
     <Drawer
-      variant={isPermanent ? "permanent" : "temporary"}
-      className={classNames({
-        [DrawerContainer]: true,
-        [DrawerOpen]: isSidebarOpened,
-        [DrawerClose]: !isSidebarOpened,
-      })}
-      classes={{
-        paper: classNames({
-          [DrawerOpen]: isSidebarOpened,
-          [DrawerClose]: !isSidebarOpened,
-        }),
-      }}
-      open={isSidebarOpened}
-      onClose={() => toggleSidebar(layoutDispatch)} // For temporary variant
+      variant="permanent"
+      open={isSidebarOpened} // Keep Drawer open or closed based on state
+      onClose={() => toggleSidebar(layoutDispatch)}
     >
-      <SidebarList>
-        {menuStructure.map((link) => (
-          <SidebarLink
-            key={link.id}
-            location={location}
-            isSidebarOpened={isSidebarOpened}
-            {...link}
+      <DrawerOpen isSidebarOpened={isSidebarOpened}>
+        <div>
+          <IconButton onClick={() => setIsSidebarOpened(!isSidebarOpened)}>
+            <ArrowBackIcon />
+          </IconButton>
+          <SidebarList>
+              {menuStructure.map((link) => (
+                <SidebarLink
+                  key={link.id}
+                  location={location}
+                  isSidebarOpened={isSidebarOpened}
+                  {...link}
           />
         ))}
-      </SidebarList>
+      </SidebarList> 
+        </div>
+      </DrawerOpen>
     </Drawer>
   );
+    
 }
 
 export default Sidebar;
+
+
+

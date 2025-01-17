@@ -2,16 +2,25 @@ import { styled } from "@mui/system";
 import { Drawer } from "@mui/material";
 import { List } from "@mui/material";
 
-const drawerWidth = 2;
+const drawerWidth = 24;
 
-export const DrawerContainer = styled(Drawer)({
-  width: drawerWidth,
+// Default width values
+const drawerWidthOpen = 240;
+const drawerWidthClosed = 72;
+
+export const DrawerContainer = styled(Drawer)(({ theme }) => ({
   flexShrink: 0,
   whiteSpace: "nowrap",
-});
+  "& .MuiDrawer-paper": {
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+}));
 
-export const DrawerOpen = styled(Drawer)(({ theme }) => ({
-  width: drawerWidth,
+export const DrawerOpen = styled("div")(({ theme, isSidebarOpened }) => ({
+  width: isSidebarOpened ? 240 : 55, // Use isSidebarOpened to dynamically set the width
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
